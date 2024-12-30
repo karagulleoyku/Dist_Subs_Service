@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message Configuration {
+    int32 server_id = 1;
+    int32 max_subscribers = 2;
+    bool enable_logging = 3;
+    //repeated string allowed_domains = 4;
+}
