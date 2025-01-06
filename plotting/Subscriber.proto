@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message Subscriber {
+    enum Status {
+        SUBS = 0;  
+        ONLN = 1;  
+        OFFL = 2;  
+    }
+    
+    Status status = 1;
+    string name_surname = 2;
+    int32 id = 3;
+    int64 last_accessed = 4;
+}
