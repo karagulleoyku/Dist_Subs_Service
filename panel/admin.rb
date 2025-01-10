@@ -1,5 +1,5 @@
 require 'socket'
-require_relative './Panel/subscriber_pb' # Generated Ruby code from subscriber.proto
+require_relative './Panel/subscriber_pb'
 require_relative './Panel/capacity_pb'
 
 def main
