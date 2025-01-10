@@ -2,41 +2,39 @@ import java.net.*;
 import java.io.*;
 import com.example.protobuf.SubscriberOuterClass.Subscriber;
 
-
 public class Client {
     private static final String SERVER_HOST = "localhost";
-    private static final int[] SERVER_PORTS = {5001, 5002, 5003};
-    
-    public Subscriber subscribe(String nameSurname) {
- 
+    private static final int[] SERVER_PORTS = {5001};
+
+    public void sendSubscriber(Subscriber subscriber) {
         for (int port : SERVER_PORTS) {
             try (Socket socket = new Socket(SERVER_HOST, port)) {
- 
-                Subscriber request = Subscriber.newBuilder()
-                    .setStatus(Subscriber.Status.SUBS)
-                    .setNameSurname(nameSurname)
-                    .build();
-                
-       
-                request.writeDelimitedTo(socket.getOutputStream());
-                
+                // Subscriber nesnesini gönder
+                subscriber.writeDelimitedTo(socket.getOutputStream());
+                System.out.println("Subscriber sent to server on port " + port);
+
+                // Sunucudan yanıt al
                 Subscriber response = Subscriber.parseDelimitedFrom(socket.getInputStream());
-                return response;
+                if (response != null) {
+                    System.out.println("Response from server: ID = " + response.getId());
+                }
+                return; // Başarılı ise diğer sunuculara deneme yapmaz
             } catch (IOException e) {
                 System.out.println("Failed to connect to server on port " + port);
-          
             }
         }
-        throw new RuntimeException("All servers are unavailable");
+        System.err.println("All servers are unavailable");
     }
-    
+
     public static void main(String[] args) {
         Client client = new Client();
-        try {
-            Subscriber response = client.subscribe("Oyku Karag");
-            System.out.println("Subscribed with ID: " + response.getId());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Subscriber subscriber = Subscriber.newBuilder()
+            .setId(1)
+            .setNameSurname("Odev Deneme")
+            .setStatus(Subscriber.Status.SUBS)
+            .setLastAccessed(System.currentTimeMillis() / 1000)
+            .build();
+
+        client.sendSubscriber(subscriber);
     }
 }
