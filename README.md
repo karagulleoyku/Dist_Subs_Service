@@ -5,7 +5,7 @@ Bu proje, Protobuf kullanarak dağıtık bir abonelik sistemi oluşturmayı ama�
 
 # Proje Bileşenleri
 1)Sunucular (Server1, Server2, Server3):
-Gelen mesajlara göre abone işlemleri gerçekleştirir ve kapasite durumu gibi bilgileri sağlar. CAPACITY_REQUEST mesajını alarak abone bilgilerini döndürür. Protobuf kullanarak tanımlı Capacity ve Subscriber nesneleriyle çalışır.
+Gelen mesajlara göre abone işlemleri gerçekleştirir ve kapasite durumu gibi bilgileri sağlar. CPCTY mesajını alarak abone bilgilerini döndürür. Protobuf kullanarak tanımlı Capacity ve Subscriber nesneleriyle çalışır.
 
 2)İstemci (Client):
 Sunucularla iletişim kurarak yeni abonelik işlemleri yapar. Sunucular arasında yük devretmeyi destekler.
