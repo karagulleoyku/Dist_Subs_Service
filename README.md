@@ -17,34 +17,34 @@ Sunucuların kapasite bilgilerini grafik üzerinde canlı olarak gösterir.
 
 
 Proto Dosyalarının Derlenmesi
-# Java için: 
+# Java için:
+``` 
 cd dist_servers
 protoc --java_out=. capacity.proto
 protoc --java_out=. subscriber.proto
 protoc --java_out=. configuration.proto
-
+```
 # Python için:
+```
 cd plotting
 protoc --python_out=. capacity.proto
 protoc --python_out=. subscriber.proto
 protoc --python_out=. configuration.proto
+```
 
 Sunucuların Başlatılması
+```
 cd dist_servers
 java Server1.java
 java Server2.java
 java Server3.java
+```
 
 Admin Panelinin Çalıştırılması
+```
 ruby admin.rb
+```
 
-'''ruby
-  puts "hello"
-'''
-
-'''bash
-cd cd 
-'''
 
 
 
