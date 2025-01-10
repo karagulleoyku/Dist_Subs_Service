@@ -1,5 +1,6 @@
 require 'socket'
-require_relative './Panel/subscriber_pb'
+require_relative './Panel/subscriber_pb' # Generated Ruby code from subscriber.proto
+require_relative './Panel/capacity_pb'
 
 def main
   servers = [
@@ -25,10 +26,11 @@ def main
         puts "Subscriber sent to #{server[:name]}."
 
       elsif server[:name] == "Server3"
-        capacity_request = "REQUEST_CAPACITY"
+        capacity_request = "CPCTY" 
         socket.puts(capacity_request)
-        response = socket.gets
-        puts "Capacity response from #{server[:name]}: #{response}"
+        response = socket.read
+        #capacity = Capacity.decode(response)
+        puts "Capacity response from #{server[:name]}: #{response.bytes}"
 
       else
         message = "Ping from Admin to #{server[:name]}"
