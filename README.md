@@ -45,10 +45,24 @@ java Server3.java
 ruby admin.rb
 ```
 
-
-
-
-
+# Projenin Çıktı Örnekleri
+```
+Server1 is listening on port 5001
+Server2 is listening on port 5002
+Server3 is listening on port 5003
+```
+```
+Server1 received: ↕
+Odev Deneme↑☺
+```
+```
+New client connected to Server2
+Server2 received: Ping from Admin to Server2
+```
+```
+New client connected to Server3
+Server3 received: REQUEST_CAPACITY
+```
 
 # Ekip Üyeleri
 
