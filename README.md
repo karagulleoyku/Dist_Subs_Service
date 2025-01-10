@@ -2,6 +2,7 @@
 
 Bu proje, Protobuf kullanarak dağıtık bir abonelik sistemi oluşturmayı amaçlamaktadır. Sistem; sunucular, istemciler, bir yönetim paneli (admin), ve bir veri görselleştirme aracı (plotter) içerir. Her bir bileşen, TCP soketleri üzerinden haberleşir ve Protobuf ile tanımlı mesajlar kullanılarak veri alışverişi yapılmayı amaçlar.
 
+
 # Proje Bileşenleri
 1)Sunucular (Server1, Server2, Server3):
 Gelen mesajlara göre abone işlemleri gerçekleştirir ve kapasite durumu gibi bilgileri sağlar. CAPACITY_REQUEST mesajını alarak abone bilgilerini döndürür. Protobuf kullanarak tanımlı Capacity ve Subscriber nesneleriyle çalışır.
@@ -81,4 +82,5 @@ Capacity response from Server3: [80, 114, 111, 99, 101, 115, 115, 101, 100, 32, 
 - [20060367 Zeynep Sezin Kazancıoğlu](https://github.com/Zsezin)
 
 # Proje Videosu
-https://youtu.be/QUwwAKtrdoA (https://youtu.be/QUwwAKtrdoA)
+https://youtu.be/QUwwAKtrdoA
+(Projemiz bazı bağlantı hataları yüzünden eksiktir videoda belirtilmiştir.)
