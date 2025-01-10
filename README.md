@@ -38,6 +38,14 @@ java Server3.java
 Admin Panelinin Çalıştırılması
 ruby admin.rb
 
+'''ruby
+  puts "hello"
+'''
+
+'''bash
+cd cd 
+'''
+
 
 
 
