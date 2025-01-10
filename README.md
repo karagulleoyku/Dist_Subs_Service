@@ -52,9 +52,9 @@ ruby admin.rb
 
 # Ekip Üyeleri
 
-22060326 Öykü Karagülle
-22060334 Çiğse Kaya
-20060367 Zeynep Sezin Kazancıoğlu
+-[22060326 Öykü Karagülle]
+-[22060334 Çiğse Kaya]
+-[20060367 Zeynep Sezin Kazancıoğlu]
 
 # Proje Videosu
 
