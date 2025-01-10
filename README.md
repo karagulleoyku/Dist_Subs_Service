@@ -1,6 +1,6 @@
 # Dağıtık Abonelik Sistemi (Distributed Subscriber Service)
 
-Bu proje, Protobuf kullanarak dağıtık bir abonelik sistemi oluşturmayı amaçlamaktadır. Sistem; sunucular, istemciler, bir yönetim paneli (admin), ve bir veri görselleştirme aracı (plotter) içerir. Her bir bileşen, TCP soketleri üzerinden haberleşir ve Protobuf ile tanımlı mesajlar kullanılarak veri alışverişi yapılır.
+Bu proje, Protobuf kullanarak dağıtık bir abonelik sistemi oluşturmayı amaçlamaktadır. Sistem; sunucular, istemciler, bir yönetim paneli (admin), ve bir veri görselleştirme aracı (plotter) içerir. Her bir bileşen, TCP soketleri üzerinden haberleşir ve Protobuf ile tanımlı mesajlar kullanılarak veri alışverişi yapılmayı amaçlar.
 
 # Proje Bileşenleri
 1)Sunucular (Server1, Server2, Server3):
@@ -35,9 +35,8 @@ protoc --python_out=. configuration.proto
 # Sunucuların Başlatılması
 ```
 cd dist_servers
-java Server1.java
-java Server2.java
-java Server3.java
+javac -cp ".;protobuf-java-4.29.2.jar" -d . Server1.java
+java -cp ".;protobuf-java-4.29.2.jar" Server1
 ```
 
 # Admin Panelinin Çalıştırılması
@@ -52,8 +51,11 @@ Server2 is listening on port 5002
 Server3 is listening on port 5003
 ```
 ```
-Server1 received: ↕
-Odev Deneme↑☺
+New client connected to Server1
+Server1 received:
+Odev Deneme
+Unknown message received.
+
 ```
 ```
 New client connected to Server2
@@ -61,7 +63,15 @@ Server2 received: Ping from Admin to Server2
 ```
 ```
 New client connected to Server3
-Server3 received: REQUEST_CAPACITY
+Server3 received: CPCTY
+```
+```
+Connecting to Server1 on port 5001...
+Subscriber sent to Server1.
+Connecting to Server2 on port 5002...
+Response from Server2: Processed by Server2: Ping from Admin to Server2
+Connecting to Server3 on port 5003...
+Capacity response from Server3: [80, 114, 111, 99, 101, 115, 115, 101, 100, 32, 98, 121, 32, 83, 101, 114, 118, 101, 114, 51, 58, 32, 67, 80, 67, 84, 89, 13, 10]
 ```
 
 # Ekip Üyeleri
@@ -71,4 +81,4 @@ Server3 received: REQUEST_CAPACITY
 - [20060367 Zeynep Sezin Kazancıoğlu](https://github.com/Zsezin)
 
 # Proje Videosu
-
+https://youtu.be/QUwwAKtrdoA (https://youtu.be/QUwwAKtrdoA)
